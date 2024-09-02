@@ -1,6 +1,6 @@
 ---
 title: "Written Assignment 02"
-author: "Your Name"
+author: "Owen Senowitz"
 date: today
 number-sections: true
 number-depth: 3
@@ -40,6 +40,13 @@ Shown in the leftmost subfigure is the scatter plot of dataset. \emph{Age} is th
 
 
 **Answer:**
+
+$M_1$ Under Fit Model: Model $M_1$ looks like the underfit model. It's too simple and doesn't capture the pattern in the data very well. It probably won't do well on either this data or new data.
+
+$M_2$ Overfit Model: I think model $M_3$ is the overfit one because it seems like it's trying too hard to match every single point in the data. It might do really well on this dataset, but it'll probably mess up on new data. 
+
+$M_3$ Just Right Model: Model $M_2$ seems just right. It captures the pattern in the data without being too complicated. It should work well on both this data and new data.
+
 
 
 
@@ -87,6 +94,18 @@ end if
 
 Why is this model a consistent prediction model? Explain. This model also uses two principles: feature design and feature selection. Explain these two principles.
 
+**Answer:**
+
+**Q1) Why is this model a consistent prediction model?**
+
+The model is consistent because it correctly predicts the "Outcome" for all the examples in the training data. Here’s how it works. The model says that if the Loan-Salary Ratio is greater than 3, the outcome should be "default." If the Loan-Salary Ratio is 3 or less, the outcome should be "repaid."
+
+Now, if you look at the data. For all the entries where the Loan-Salary Ratio is greater than 3, the actual outcome is "default." For all the entries where the Loan-Salary Ratio is 3 or less, the actual outcome is "repaid."
+
+**Q2) This model also uses two principles: feature design and feature selection.**
+
+This is about creating or choosing the right features (variables) that will help the model make accurate predictions. In this case, the model is designed around the "Loan-Salary Ratio" as the main feature. It assumes that this ratio is a strong indicator of whether someone will repay or default on a loan. This is about picking the most important features out of all the available ones. Here, the model is only using the "Loan-Salary Ratio" and ignoring other features like Occupation and Age. The idea is that the Loan-Salary Ratio is the most useful feature for making the prediction.
+
 
 # Question: Consistent Prediction Model
 
@@ -127,6 +146,13 @@ end if
 
 Is this model a consistent prediction model? Explain. Which model is better? $M_1$ or $M_2$. Why?
 
+**Answer:**
+
+Model $M_1$ is very simple it only uses the Loan-Salary Ratio to decide if someone will "default" or repay. It worked perfectly with the first dataset because it only had one clear rule: if the ratio is above 3, "default" otherwise, repay.
+
+Model $M_2$ is more complex. It uses not just the Loan-Salary Ratio, but also Age and Occupation to make predictions. Because of this, it can handle more varied data, like the second dataset, where there are more factors to consider.
+
+So, Model $M_2$ is better for this dataset because it can correctly predict the outcomes even when other factors (like Age and Occupation) are involved. It’s more flexible and can handle more complex situations than Model $M_1$.
 
 
 # Question: Classification or Regression?
@@ -137,7 +163,14 @@ Explain whether each scenario is a classification or regression problem.
 
 We collect a set of data on the top 500 firms in the US. For each firm we record profit, number of employees, industry and the CEO salary. We are interested in understanding which factors affect CEO salary.
 
+**Answer:**
+
+In this scenario, the goal is to understand which factors affect CEO salary. Since salary is a numerical value, and you’re trying to predict it based on other factors (profit, number of employees, industry), this is a regression problem. Regression is used when the target variable is continuous and numerical, like predicting a salary.
+
 ## Scenario 2 
 
 We are considering launching a new product and wish to know whether it will be a success or a failure. We collect data on 20 similar products that were previously launched. For each product we have recorded whether it was a success or failure, price charged for the product, marketing budget, competition price, and ten other variables.
 
+**Answer:**
+
+In this scenario, the goal is to predict whether a new product will be a success or a failure based on data from similar products. Since the outcome (success or failure) is a categorical variable, this is a classification problem. Classification is used when the target variable is categorical, like determining whether something will be a success or failure.
