@@ -1,6 +1,6 @@
 ---
 title: "Written Assignment 06"
-author: "Your Name"
+author: "Owen Senowitz"
 date: today
 date-format: long
 number-sections: true
@@ -43,20 +43,20 @@ Please submit your response either as a self-contained HTML or PDF document.
 
 (a) Three people flip a fair coin. What is the probability that exactly two of them will get heads?
 
-    Your answer goes here.
+    The probability that exactly two of them will get heads when three people flip a coin is 0.375
 
 
 (a) Twenty people flip a fair coin. What is the probability that exactly eight of them will get heads?
 
 
-    Your answer goes here.
+    The probability that exactly eight of them will get heads when twenty people flip a coin is 0.1201
 
 
 (c) Twenty people flip a fair coin. What is the probability that at least four of them will get heads?
 
 
 
-    Your answer goes here.
+    The probability that at least four people will get heads when twenty people flip a fair coin is 0.9987
 
 
 # Estimating Probabilities
@@ -84,27 +84,27 @@ Using this dataset calculate the following probabilities:
 
 (a) P(Vomiting = true)
 
-    Your answer goes here.
+    0.6
 
 
 (a) P(Headache = false)
 
-    Your answer goes here.
+    0.3
 
 
 (a) P(Headache = true, Vomiting = false)
 
-    Your answer goes here.
+    0.1
 
 
 (a) P(Vomiting = false $\mid$ Headache = true)
 
-    Your answer goes here.
+    0.1429
 
 
 (a) P(Meningitis $\mid$ Fever = true, Vomiting = false)
 
-    Your answer goes here.
+    0.25
 
 
 
@@ -131,12 +131,12 @@ knitr::kable(df2, caption = 'Data for a naive Bayes model.', align = "lrrrrrrr")
 
 (a) Create a naive Bayes model that uses probability density functions to model the descriptive features in this dataset (assume that all the descriptive features are normally distributed).
 
-    Your answer goes here.
+![](navie.png)
 
 
 (a) What prediction will the naive Bayes model return for the following query? SS-IN = 222, SED-IN = 4.5, COND-IN = 1,518, SS-OUT = 74 SED-OUT = 0.25, COND-OUT = 1,642
 
-    Your answer goes here.
+    The query has a status of the settler class
 
 
 # Transforming a Continuous Feature to a Categorical Feature
@@ -161,19 +161,27 @@ knitr::kable(df3, caption = 'Data for a insurance policy model.', align = "lllll
 
 (a) Using equal-frequency binning transform the Age feature into a categorical feature with three levels: young, middle-aged, mature.
 
-    Your answer goes here.
+    Young: Age <= 21
+
+    Middle-aged: 22 <= Age <= 49
+
+    Mature: Age >= 50
 
 (a) Examine the descriptive features in the dataset and list the features that you would exclude before you would use the dataset to build a predictive model. For each feature you decide to exclude, explain why you have made this decision.
 
-    Your answer goes here.
+    ID: This feature should be excluded because it is a unique idetifier and does not provide any meaningful information for prediction.
+
+    Occupation: While it might contain useful information, it can introduce too many categorical levels, making it difficult to model efficiently without further preprocessing
 
 (a) Calculate the probabilities required by a naive Bayes model to represent this domain.
 
-    Your answer goes here.
+    The model calculates the probabilities for each feature conditioned on the target variable as well as the class priors
 
 (a) What target level will a naive Bayes model predict for the following query: Gender = female, Age = 30, Policy = planA.
 
-    Your answer goes here.
+    P(email) = 0.448
+
+    P(phone) = 0.552
 
 
 
@@ -210,15 +218,21 @@ knitr::kable(df5, col.names = NULL, caption = 'Word-document counts for the educ
 
 (a) What target level will a naive Bayes model predict for the following query document: machine learning is fun
 
-    Your answer goes here.
+    Entertainment: 7.27 X 10^-7
+
+    Education: 7.85 X 10^-4
 
 (a) What target level will a naive Bayes model predict for the following query document: christmas family fun
 
-    Your answer goes here.
+    For the query document "christmas family fun" both posterior probabilities are zero because the word "christmas" has a count of 0 in both classes. Without smoothing, the Naive Bayes model cannot make a valid prediction.
 
 (a) What target level will a naive Bayes model predict for the query document in part (b) of this question, if Laplace smoothing with k = 10 and a vocabulary size of 6 is used?
 
-    Your answer goes here.
+    After smoothing
+
+    Entertainment: 2.60 X 10^-4
+
+    Education: 2.56 X 10^-5
 
 
 
