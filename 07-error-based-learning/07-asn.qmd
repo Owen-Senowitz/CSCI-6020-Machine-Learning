@@ -1,6 +1,6 @@
 ---
 title: "Written Assignment 07"
-author: "Your Name"
+author: "Owen Senowitz"
 date: today
 date-format: long
 number-sections: true
@@ -67,7 +67,13 @@ knitr::kable(df1, caption = 'Data for a predicting heating load in residential b
 ```
 
 
-Your answer goes here.
+ID 1: 15.51
+
+ID 2: 7.22
+
+ID 3: 33.75
+
+ID 4: 34.36
 
 
 # Another Multivariate Linear Regression Model
@@ -96,19 +102,89 @@ knitr::kable(df2, caption = 'Dataset for a predicting the amount of oxygen that 
 
 (a) Assuming that the current weights in a multivariate linear regression model are w[0]= -59.50, w[1] = -0.15, and w[2] = 0.60, make a prediction for each training instance using this model.
 
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
+    1: 17.15
+
+    2: 26.00
+
+    3: 25.55
+
+    4: 13.40
+
+    5: 8.99
+
+    6: 20.90
+
+    7: 28.85
+
+    8: 19.40
+
+    9: 17.75
+
+    10: 29.60
+
+    11: 19.85
+
+    12: 16.85
 
 (b) Calculate the sum of squared errors for the set of predictions generated in part (a).
 
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
+    1: 434.31
+
+    2: 455.40
+
+    3: 354.57
+
+    4: 218.57
+
+    5: 330.15
+
+    6: 287.30
+
+    7: 251.86
+
+    8: 289.68
+
+    9: 181.17
+
+    10: 637.56
+
+    11: 399.60
+
+    12: 195.44
 
 (c) Assuming a learning rate of 0.000002, calculate the weights at the next iteration of the gradient descent algorithm.
 
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
+    $w_0$: -59.50
+
+    $w_1$: -0.11
+
+    $w_2$: 0.73
 
 (d) Calculate the sum of squared errors for a set of predictions generated using the new set of weights calculated in part (c).
 
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
+    1: Pred: 35.91 SSE: 4.33
+
+    2: Pred: 46.67 SSE: 0.45
+
+    3: Pred: 45.79 SSE: 1.99
+
+    4: Pred: 31.71 SSE: 12.60
+
+    5: Pred: 26.41 SSE: 0.423
+
+    6: Pred: 40.65 SSE: 7.81
+
+    7: Pred: 50.18 SSE: 29.86
+
+    8: Pred: 38.96 SSE: 6.49
+
+    9: Pred: 36.36 SSE: 26.56
+
+    10: Pred: 50.75 SSE: 16.79
+
+    11: Pred: 39.31 SSE: 0.28
+
+    12: Pred: 35.68 SSE: 23.55
 
 
 # Logistic Regression Model
@@ -127,7 +203,7 @@ Plainly, this model is not performing well.
 
 (a) Would the similarity-based, information-based, or probability-based predictive modeling approaches already covered in this book be likely to do a better job of learning this model than the simple linear regression model?
 
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
+    The similarity-based, information-based, and probability-based approaches are likely to outperform the simple linear logistic regression model in this scenario. Methods like k-Nearest Neighbors (similarity-based) can handle the non-linear decision boundary needed to classify the data effectively. Information-based approaches, such as decision trees, can create complex splits in the feature space, making them well-suited for distinguishing between dangerous and safe interactions. Additionally, probability-based methods, like Naive Bayes or more advanced probabilistic models, may better capture the underlying patterns if the feature relationships align with their assumptions. These models are generally more flexible and adaptable to non-linear patterns compared to simple linear models.
     
     
 (b) A simple approach to adapting a logistic regression model to learn this type of decision boundary is to introduce a set of basis functions that will allow a non-linear decision boundary to be learned. In this case, a set of basis functions that generate a cubic decision boundary will work well. An appropriate set of basis functions is as follows:
@@ -172,100 +248,27 @@ knitr::kable(df3, caption = 'Prediction queries.', align = "lrrrr")
 ```
 
 
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
-
-
-::: {.content-hidden}
-
-# Support Vector Machines
-
-A support vector machine has been built to predict whether a patient is at risk of cardiovascular disease. In the dataset used to train the model, there are two target levels —- *high risk* (the positive level, +1) or *low risk* (the negative level, -1) —- and three descriptive features —- AGE, BMI, and BLOOD PRESSURE. The support vectors in the trained model are shown in the table below (all descriptive feature values have been standardized).
-
+    
 ```{r}
 #| echo: false
-library(readr)
-df4 <- readr::read_csv("./svm-1.csv", col_names = TRUE)
+query_table <- data.frame(
+  ID = c(1, 2, 3, 4),
+  DOSE1 = c(0.50, 0.10, -0.47, -0.47),
+  DOSE2 = c(0.75, 0.75, -0.39, 0.18),
+  Phi_0 = c(1, 1, 1, 1),
+  Phi_1 = c(0.50, 0.10, -0.47, -0.47),
+  Phi_2 = c(0.75, 0.75, -0.39, 0.18),
+  Phi_3 = c(0.25, 0.01, 0.2209, 0.2209),
+  Phi_4 = c(0.5625, 0.5625, 0.1521, 0.0324),
+  Phi_5 = c(0.125, 0.001, -0.1038, -0.1038),
+  Phi_6 = c(0.421875, 0.421875, -0.059319, 0.005832),
+  Phi_7 = c(0.375, 0.075, 0.1833, -0.0846),
+  Z = c(1.546141, -0.460975, 0.533672, -1.671841),
+  P_Dangerous = c(0.824356, 0.386754, 0.630339, 0.158179)
+)
 ```
-
-```{r}
-#| echo: false
-#| tbl-cap-location: margin
-knitr::kable(df4, caption = 'Support vectors in the trained model.', align = "lrrr")
-```
-
-```{r}
-#| echo: false
-library(readr)
-df5 <- readr::read_csv("./svm-2.csv", col_names = TRUE)
-```
-
 ```{r}
 #| echo: false
 #| tbl-cap-location: margin
-knitr::kable(df5, caption = 'Query instances for the SVM model.', align = "lrrr")
+knitr::kable(query_table, caption = "Logistic Regression Predictions Table")
 ```
-
-In the model the value of $w_0$ is -0.0216, and the values of the $\boldsymbol{\alpha}$ parameters are $\langle 1.6811,0.2384,0.2055,1.7139\rangle$. What predictions would this model make for the following query instances?
-
-Your answer goes here.
-
-
-# Efficient Implementation of the SVM Approach
-
-The use of the *kernel trick* is key in writing efficient implementations of the support vector machine approach to predictive modelling. The kernel trick is based on the fact that the result of a kernel function applied to a support vector and a query instance is equivalent to the result of calculating the dot product between the support vector and the query instance after a specific set of basis functions have been applied to both —- in other words, kernel $(\mathbf{d}, \mathbf{q})=\boldsymbol{\phi}(\mathbf{d}) \cdot \boldsymbol{\phi}(\mathbf{q})$.
-
-
-(a) Using the support vector $\langle\mathbf{d}[1], \mathbf{d}[2]\rangle$ and the query instance $\langle\mathbf{q}[1], \mathbf{q}[2]\rangle$ as examples, show that applying a polynomial kernel with $p=2, \operatorname{kernel}(\mathbf{d}, \mathbf{q})=$ $(\mathbf{d} \cdot \mathbf{q}+1)^2$, is equivalent to calculating the dot product of the support vector and query instance after applying the following set of basis functions:
-
-    $$
-    \begin{array}{ll}
-    \phi_0(\langle\mathbf{d}[1], \mathbf{d}[2]\rangle)=\mathbf{d}[1]^2 & \phi_1(\langle\mathbf{d}[1], \mathbf{d}[2]\rangle)=\mathbf{d}[2]^2 \\
-    \phi_2(\langle\mathbf{d}[1], \mathbf{d}[2]\rangle)=\sqrt{2} \times \mathbf{d}[1] \times \mathbf{d}[2] & \phi_3(\langle\mathbf{d}[1], \mathbf{d}[2]\rangle)=\sqrt{2} \times \mathbf{d}[1] \\
-    \phi_4(\langle\mathbf{d}[1], \mathbf{d}[2]\rangle)=\sqrt{2} \times \mathbf{d}[2] & \phi_5(\langle\mathbf{d}[1], \mathbf{d}[2]\rangle)=1
-    \end{array}
-    $$
-
-
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
-    
-    
-    
-(b) A support vector machine model has been trained to distinguish between dosages of two drugs that cause a dangerous interaction and those that interact safely. This model uses just two continuous features, DOSE1 and DOSE2, and two target levels, dangerous (the positive level, +1 ) and safe (the negative level, -1). The support vectors in the trained model are shown in the following table.
-
-
-    ```{r}
-    #| echo: false
-    library(readr)
-    df6 <- readr::read_csv("./kernel-trick.csv", col_names = TRUE)
-    ```
-
-    ```{r}
-    #| echo: false
-    #| tbl-cap-location: margin
-    knitr::kable(df6, caption = 'Support vectors.', align = "lrr")
-    ```
-
-
-    In the trained model the value of $w_0$ is 0.3074 , and the values of the $\boldsymbol{\alpha}$ parameters are $\langle 7.1655,6.9060,2.0033,6.1144,5.9538\rangle$.
-
-    Using the version of the support vector machine prediction model that uses basis functions (see the Equation below) with the basis functions given in Part (a), calculate the output of the model for a query instance with DOSE $1=0.90$ and DOSE2 $=-0.90$.
-    
-    $$
-    \mathbb{M}_{\boldsymbol{\alpha}, \boldsymbol{\phi}, w_0}(\mathbf{q})=\sum_{i=1}^s\left(t_i \times \boldsymbol{\alpha}[i] \times\left(\boldsymbol{\phi}\left(\mathbf{d}_i\right) \cdot \boldsymbol{\phi}(\mathbf{q})\right)+w_0\right)
-    $$
-    
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
-    
-(c) Using the version of the support vector machine prediction model that uses a kernel function (see the Equation below) with the polynomial kernel function, calculate the output of the model for a query instance with DOSE1 $=0.22$ and DOSE2 $=0.16$.
-
-    $$
-    \mathbb{M}_{\boldsymbol{\alpha}, k e r n e l, w_0}(\mathbf{q})=\sum_{i=1}^s\left(t_i \times \boldsymbol{\alpha}[i] \times \operatorname{kernel}\left(\mathbf{d}_i, \mathbf{q}\right)+w_0\right)
-    $$
-
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
-
-(d) Verify that the answers calculated in Parts (b) and (c) of this question would have been the same if the alternative approach (basis functions or the polynomial kernel function) had been used in each case.
-
-    Your answer goes here (indent four space to ensure correct numbering of subquestions).
-    
-:::
