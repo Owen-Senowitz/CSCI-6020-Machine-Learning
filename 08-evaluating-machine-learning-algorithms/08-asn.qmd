@@ -1,0 +1,109 @@
+---
+title: "Written Assignment 08"
+author: "Your Name"
+date: today
+date-format: long
+number-sections: true
+number-depth: 3
+fig-cap-location: margin
+format:
+  html:
+    toc: true
+    toc-location: right
+    number-sections: true
+    number-depth: 3
+    html-math-method: katex
+    embed-resources: true
+    self-contained: true
+# bibliography: dasc-6000.bib 
+# csl: ieee-with-url.csl
+# linkcolor: red
+# urlcolor: blue
+# link-citations: yes
+# header-includes:
+#   - \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+---
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
+# Assignment Goal {.unnumbered}
+
+The overarching goal for this assignment is to assess your understanding of evaluating machine learning models. 
+
+# Instructions {.unnumbered}
+
+Please show all your work. Simply providing the final answer is treated as no response. If you do not use R or Python notebooks, it is fine. However, the document structure should be preserved if you choose to use Microsoft Word or something else.
+
+Please submit your response either as a self-contained HTML or PDF document.
+
+There are two questions. Each question carries 50 points.
+
+# Basic Evaluation Measures - Categorical Target
+
+The table below shows the predictions made for a **categorical target feature** by a model for a test dataset.
+
+```{r}
+#| echo: false
+library(readr)
+df1 <- readr::read_csv("./categorical-target.csv", col_names = TRUE)
+```
+
+
+```{r}
+#| echo: false
+#| tbl-cap-location: margin
+knitr::kable(df1, caption = 'Predictions made for a categorical target feature.', align = "lrr")
+```
+
+
+Based on this test set, calculate the following evaluation measures.
+
+(a) A confusion matrix and the misclassification rate
+
+    Your answer goes here (indent four spaces to ensure correct numbering of subquestions).
+    
+(a) The average class accuracy (harmonic mean)
+
+    Your answer goes here (indent four spaces to ensure correct numbering of subquestions).
+
+(a) The precision, recall, and $F_1$ measure
+
+    Your answer goes here (indent four spaces to ensure correct numbering of subquestions).
+
+
+
+# Basic Evaluation Measures - Continuous Target
+
+The table below shows the predictions made for a **continuous target feature** by two different prediction models for a test dataset.
+
+```{r}
+#| echo: false
+library(readr)
+df2 <- readr::read_csv("./continuous-target.csv", col_names = TRUE)
+```
+
+
+```{r}
+#| echo: false
+#| tbl-cap-location: margin
+knitr::kable(df2, caption = 'Predictions made for a continuous target feature.', align = "lrrr")
+```
+
+(a) Based on these predictions, calculate the evaluation measures listed below for each
+model.
+
+    i. The sum of squared errors
+    
+    Your answer goes here (indent eight spaces to ensure correct numbering of subquestions).
+    
+    ii. The $R^2$ measure
+
+    Your answer goes here (indent four spaces to ensure correct numbering of subquestions).
+
+(a) Based on the evaluation measures calculated, which model do you think is performing better for this dataset?
+
+
+Your answer goes here
+
