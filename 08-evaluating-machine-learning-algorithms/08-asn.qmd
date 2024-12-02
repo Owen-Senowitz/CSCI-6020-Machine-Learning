@@ -1,6 +1,6 @@
 ---
 title: "Written Assignment 08"
-author: "Your Name"
+author: "Owen Senowitz"
 date: today
 date-format: long
 number-sections: true
@@ -62,15 +62,47 @@ Based on this test set, calculate the following evaluation measures.
 
 (a) A confusion matrix and the misclassification rate
 
-    Your answer goes here (indent four spaces to ensure correct numbering of subquestions).
+    Confusion matrix
+
+    True Negatives (TN): Target = False, Prediction = False
+
+    Rows: 1, 2, 3, 4, 6, 9, 10, 11, 13, 15, 16 (Count = 11)
+
+    False Positives (FP): Target = False, Prediction = True
+
+    Rows: None (Count = 0)
+
+    False Negatives (FN): Target = True, Prediction = False
+
+    Rows: 17 (Count = 1)
+
+    True Positives (TP): Target = True, Prediction = True
+
+    Rows: 5, 7, 8, 12, 14, 18, 19, 20 (Count = 8)
+
+    $\text{Confusion Matrix} =
+\begin{bmatrix}
+11 & 0 \\
+1 & 8
+\end{bmatrix}$
+
+    $\text{Misclassification Rate} = \frac{\text{FP} + \text{FN}}{\text{Total Samples}}$
+
+    $\text{FP} = 0, \quad \text{FN} = 1, \quad \text{Total Samples} = 20$
+
+    $\text{Misclassification Rate} = \frac{0 + 1}{20} = \frac{1}{20} = 0.05$
     
 (a) The average class accuracy (harmonic mean)
 
-    Your answer goes here (indent four spaces to ensure correct numbering of subquestions).
+    $\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}} = \frac{8}{8 + 0} = 1.0$
+
+    $\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}} = \frac{8}{8 + 1} = 0.8889$
+
+    $\text{Harmonic Mean} = \frac{2 \times \text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2 \times 1.0 \times 0.8889}{1.0 + 0.8889} = \frac{1.7778}{1.8889} = 0.9412$
 
 (a) The precision, recall, and $F_1$ measure
 
-    Your answer goes here (indent four spaces to ensure correct numbering of subquestions).
+    $F_1 = \frac{2 \times \text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2 \times 1.0 \times 0.8889}{1.0 + 0.8889} = \frac{1.7778}{1.8889} = 0.9412$
 
 
 
@@ -96,14 +128,25 @@ model.
 
     i. The sum of squared errors
     
-    Your answer goes here (indent eight spaces to ensure correct numbering of subquestions).
+    $\text{SSE} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$
+
+    $\text{SSE}_{\text{Model 1}} = 33500$
+
+    $\text{SSE}_{\text{Model 2}} = 94738$
     
     ii. The $R^2$ measure
 
-    Your answer goes here (indent four spaces to ensure correct numbering of subquestions).
+    $R^2 = 1 - \frac{\text{SSE}}{\text{SST}}$
+
+    $\bar{y} = \frac{\sum_{i=1}^{n} y_i}{n} = \frac{75457}{30} \approx 2515.23$
+
+    $\text{SST} = \sum_{i=1}^{n} (y_i - \bar{y})^2 = 467334$
+
+    $R^2_{\text{Model 1}} = 1 - \frac{33500}{467334} \approx 0.9284$
+
+    $R^2_{\text{Model 2}} = 1 - \frac{94738}{467334} \approx 0.7976$
 
 (a) Based on the evaluation measures calculated, which model do you think is performing better for this dataset?
 
-
-Your answer goes here
+    For SSE Model 1 had a much lower SSE, meaning its predictions are closer to the target values on average. For $R^2$ Model 1 explains more variance in the target values compared to Model 2. Model 1 performs better than Model 2 because it had a lower SSE and a higher $R^2$.
 
