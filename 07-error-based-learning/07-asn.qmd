@@ -67,13 +67,21 @@ knitr::kable(df1, caption = 'Data for a predicting heating load in residential b
 ```
 
 
-ID 1: 15.51
+ID 1:
 
-ID 2: 7.22
+$15.51 = -26.030 + 0.0497 \cdot 784.0 + 4.942 \cdot 3.5 - 0.090 \cdot 220.5 + 20.523 \cdot 0.25$
 
-ID 3: 33.75
+ID 2:
 
-ID 4: 34.36
+$7.22 = -26.030 + 0.0497 \cdot 710.5 + 4.942 \cdot 3.0 - 0.090 \cdot 210.5 + 20.523 \cdot 0.10$
+
+ID 3:
+
+$33.75 = -26.030 + 0.0497 \cdot 563.5 + 4.942 \cdot 7.0 - 0.090 \cdot 122.5 + 20.523 \cdot 0.40$
+
+ID 4:
+
+$34.36 = -26.030 + 0.0497 \cdot 637.0 + 4.942 \cdot 6.0 - 0.090 \cdot147.0 + 20.523 \cdot 0.60$
 
 
 # Another Multivariate Linear Regression Model
@@ -102,89 +110,134 @@ knitr::kable(df2, caption = 'Dataset for a predicting the amount of oxygen that 
 
 (a) Assuming that the current weights in a multivariate linear regression model are w[0]= -59.50, w[1] = -0.15, and w[2] = 0.60, make a prediction for each training instance using this model.
 
-    1: 17.15
+    1: $17.15 =-59.50 + (-0.15 \cdot 41) + (0.60 \cdot 138)$
 
-    2: 26.00
+    2: $26.00 = -59.50 + (-0.15 \cdot 42) + (0.60 \cdot 153)$
 
-    3: 25.55
+    3: $25.55 = -59.50 + (-0.15 \cdot 37) + (0.60 \cdot 151)$
 
-    4: 13.40
+    4: $13.40 = -59.50 + (-0.15 \cdot 46) + (0.60 \cdot 133)$
 
-    5: 8.99
+    5: $8.99 = -59.50 + (-0.15 \cdot 48) + (0.60 \cdot 126)$
 
-    6: 20.90
+    6: $20.90 = -59.50 + (-0.15 \cdot 44) + (0.60 \cdot 145)$
 
-    7: 28.85
+    7: $28.85 = -59.50 + (-0.15 \cdot 43) + (0.60 \cdot 158)$
 
-    8: 19.40
+    8: $19.40 = -59.50 + (-0.15 \cdot 46) + (0.60 \cdot 143)$
 
-    9: 17.75
+    9: $17.75 = -59.50 + (-0.15 \cdot 37) + (0.60 \cdot 138)$
 
-    10: 29.60
+    10: $29.60 = -59.50 + (-0.15 \cdot 38) + (0.60 \cdot 158)$
 
-    11: 19.85
+    11: $19.85 = -59.50 + (-0.15 \cdot 43) + (0.60 \cdot 143)$
 
-    12: 16.85
+    12: $16.85 = -59.50 + (-0.15 \cdot 43) + (0.60 \cdot 138)$
 
 (b) Calculate the sum of squared errors for the set of predictions generated in part (a).
 
-    1: 434.31
+    1: $434.31 = (37.99 - 17.15)^2$
 
-    2: 455.40
+    2: $455.40 = (47.34 - 26.00)^2$
 
-    3: 354.57
+    3: $354.57 = (44.38 - 25.55)^2$
 
-    4: 218.57
+    4: $218.57 = (28.17 - 13.40)^2$
 
-    5: 330.15
+    5: $330.15 = (27.07 - 8.99)^2$
 
-    6: 287.30
+    6: $287.30 = (37.85 - 20.90)^2$
 
-    7: 251.86
+    7: $251.86 = (44.72 - 28.85)^2$
 
-    8: 289.68
+    8: $289.68 = (36.42 - 19.40)^2$
 
-    9: 181.17
+    9: $181.17 = (31.21 - 17.75)^2$
 
-    10: 637.56
+    10: $637.56 = (54.85 - 29.60)^2$
 
-    11: 399.60
+    11: $399.60 = (39.84 - 19.85)^2$
 
-    12: 195.44
+    12: $195.44 = (30.83 - 16.85)^2$
 
 (c) Assuming a learning rate of 0.000002, calculate the weights at the next iteration of the gradient descent algorithm.
 
-    $w_0$: -59.50
+    $\text{Gradient Descent Update Formula:} \quad w_j = w_j - \eta \cdot \frac{\partial J}{\partial w_j}$
 
-    $w_1$: -0.11
+    $\text{For }w_0 = -59.50 - (0.000002 \cdot \frac{\partial J}{\partial w_0})$
 
-    $w_2$: 0.73
+    $\text{For }w_1 = -0.11 - (0.000002 \cdot \frac{\partial J}{\partial w_1})$
+
+    $\text{For }w_2 = 0.73 - (0.000002 \cdot \frac{\partial J}{\partial w_2})$
+
+    $w_0 = -59.50 - (0.000002 \cdot -2.33) = -59.50000466$
+
+    $w_1 = -0.11 - (0.000002 \cdot -99.93) = -0.11019985$
+
+    $w_2 = 0.73 - (0.000002 \cdot 331.49) = 0.72933702$
 
 (d) Calculate the sum of squared errors for a set of predictions generated using the new set of weights calculated in part (c).
 
-    1: Pred: 35.91 SSE: 4.33
+    $\text{Prediction Formula:} \quad \hat{y}_i = w_0 + w_1 \cdot \text{Age} + w_2 \cdot \text{Heart Rate}$
 
-    2: Pred: 46.67 SSE: 0.45
+    $\text{For each ID:}$
 
-    3: Pred: 45.79 SSE: 1.99
+    $\hat{y}_1 = -59.50000466 + (-0.11019985 \cdot 41) + (0.72933702 \cdot 138) = 35.91$
 
-    4: Pred: 31.71 SSE: 12.60
+    $\hat{y}_2 = -59.50000466 + (-0.11019985 \cdot 42) + (0.72933702 \cdot 153) = 46.67$
 
-    5: Pred: 26.41 SSE: 0.423
+    $\hat{y}_3 = -59.50000466 + (-0.11019985 \cdot 37) + (0.72933702 \cdot 151) = 45.79$
 
-    6: Pred: 40.65 SSE: 7.81
+    $\hat{y}_4 = -59.50000466 + (-0.11019985 \cdot 46) + (0.72933702 \cdot 133) = 31.71$
 
-    7: Pred: 50.18 SSE: 29.86
+    $\hat{y}_5 = -59.50000466 + (-0.11019985 \cdot 48) + (0.72933702 \cdot 126) = 26.41$
 
-    8: Pred: 38.96 SSE: 6.49
+    $\hat{y}_6 = -59.50000466 + (-0.11019985 \cdot 44) + (0.72933702 \cdot 145) = 40.65$
 
-    9: Pred: 36.36 SSE: 26.56
+    $\hat{y}_7 = -59.50000466 + (-0.11019985 \cdot 43) + (0.72933702 \cdot 158) = 50.18$
 
-    10: Pred: 50.75 SSE: 16.79
+    $\hat{y}_8 = -59.50000466 + (-0.11019985 \cdot 46) + (0.72933702 \cdot 143) = 38.96$
 
-    11: Pred: 39.31 SSE: 0.28
+    $\hat{y}_9 = -59.50000466 + (-0.11019985 \cdot 37) + (0.72933702 \cdot 138) = 36.36$
 
-    12: Pred: 35.68 SSE: 23.55
+    $\hat{y}_{10} = -59.50000466 + (-0.11019985 \cdot 38) + (0.72933702 \cdot 158) = 50.75$
+
+    $\hat{y}_{11} = -59.50000466 + (-0.11019985 \cdot 43) + (0.72933702 \cdot 143) = 39.31$
+
+    $\hat{y}_{12} = -59.50000466 + (-0.11019985 \cdot 43) + (0.72933702 \cdot 138) = 35.68$
+
+    $\text{Squared Error Formula:} \quad \text{SSE}_i = (y_i - \hat{y}_i)^2$
+
+    $\text{For each ID:}$
+
+    $\text{SSE}_1 = (37.99 - 35.91)^2 = 4.33$
+
+    $\text{SSE}_2 = (47.34 - 46.67)^2 = 0.45$
+
+    $\text{SSE}_3 = (44.38 - 45.79)^2 = 1.99$
+
+    $\text{SSE}_4 = (28.17 - 31.71)^2 = 12.60$
+
+    $\text{SSE}_5 = (27.07 - 26.41)^2 = 0.423$
+
+    $\text{SSE}_6 = (37.85 - 40.65)^2 = 7.81$
+
+    $\text{SSE}_7 = (44.72 - 50.18)^2 = 29.86$
+
+    $\text{SSE}_8 = (36.42 - 38.96)^2 = 6.49$
+
+    $\text{SSE}_9 = (31.21 - 36.36)^2 = 26.56$
+
+    $\text{SSE}_{10} = (54.85 - 50.75)^2 = 16.79$
+
+    $\text{SSE}_{11} = (39.84 - 39.31)^2 = 0.28$
+
+    $\text{SSE}_{12} = (30.83 - 35.68)^2 = 23.55$
+
+    $\text{Total SSE:} \quad \text{SSE} = \sum_{i=1}^{n} \text{SSE}_i$
+
+    $\text{Final SSE:} \quad \text{SSE} = 164.16$
+
 
 
 # Logistic Regression Model
@@ -249,26 +302,32 @@ knitr::kable(df3, caption = 'Prediction queries.', align = "lrrrr")
 
 
     
-```{r}
-#| echo: false
-query_table <- data.frame(
-  ID = c(1, 2, 3, 4),
-  DOSE1 = c(0.50, 0.10, -0.47, -0.47),
-  DOSE2 = c(0.75, 0.75, -0.39, 0.18),
-  Phi_0 = c(1, 1, 1, 1),
-  Phi_1 = c(0.50, 0.10, -0.47, -0.47),
-  Phi_2 = c(0.75, 0.75, -0.39, 0.18),
-  Phi_3 = c(0.25, 0.01, 0.2209, 0.2209),
-  Phi_4 = c(0.5625, 0.5625, 0.1521, 0.0324),
-  Phi_5 = c(0.125, 0.001, -0.1038, -0.1038),
-  Phi_6 = c(0.421875, 0.421875, -0.059319, 0.005832),
-  Phi_7 = c(0.375, 0.075, 0.1833, -0.0846),
-  Z = c(1.546141, -0.460975, 0.533672, -1.671841),
-  P_Dangerous = c(0.824356, 0.386754, 0.630339, 0.158179)
-)
-```
-```{r}
-#| echo: false
-#| tbl-cap-location: margin
-knitr::kable(query_table, caption = "Logistic Regression Predictions Table")
-```
+$\text{Logistic Regression Formula:} \quad P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{-Z}}$
+
+$\text{Z Formula:} \quad Z = -0.848 \cdot \phi_0 + 1.545 \cdot \phi_1 - 1.942 \cdot \phi_2 + 1.973 \cdot \phi_3 + 2.495 \cdot \phi_4 + 0.104 \cdot \phi_5 + 0.095 \cdot \phi_6 + 3.009 \cdot \phi_7$
+
+$\text{Basis Functions:}$
+$\phi_0 = 1$
+$\phi_1 = \text{DOSE1}$
+$\phi_2 = \text{DOSE2}$
+$\phi_3 = \text{DOSE1}^2$
+$\phi_4 = \text{DOSE2}^2$
+$\phi_5 = \text{DOSE1}^3$
+$\phi_6 = \text{DOSE2}^3$
+$\phi_7 = \text{DOSE1} \cdot \text{DOSE2}$
+
+$\text{For ID 1:}$
+$Z = -0.848 \cdot 1 + 1.545 \cdot 0.50 - 1.942 \cdot 0.75 + 1.973 \cdot 0.2500 + 2.495 \cdot 0.5625 + 0.104 \cdot 0.125000 + 0.095 \cdot 0.421875 + 3.009 \cdot 0.3750 = 1.546141$
+$P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{-1.546141}} = 0.824356$
+
+$\text{For ID 2:}$
+$Z = -0.848 \cdot 1 + 1.545 \cdot 0.10 - 1.942 \cdot 0.75 + 1.973 \cdot 0.0100 + 2.495 \cdot 0.5625 + 0.104 \cdot 0.001000 + 0.095 \cdot 0.421875 + 3.009 \cdot 0.0750 = -0.460975$
+$P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{0.460975}} = 0.386754$
+
+$\text{For ID 3:}$
+$Z = -0.848 \cdot 1 + 1.545 \cdot -0.47 - 1.942 \cdot -0.39 + 1.973 \cdot 0.2209 + 2.495 \cdot 0.1521 + 0.104 \cdot -0.103823 + 0.095 \cdot -0.059319 + 3.009 \cdot 0.1833 = 0.533672$
+$P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{-0.533672}} = 0.630339$
+
+$\text{For ID 4:}$
+$Z = -0.848 \cdot 1 + 1.545 \cdot -0.47 - 1.942 \cdot 0.18 + 1.973 \cdot 0.2209 + 2.495 \cdot 0.0324 + 0.104 \cdot -0.103823 + 0.095 \cdot 0.005832 + 3.009 \cdot -0.0846 = -1.671841$
+$P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{1.671841}} = 0.158179$

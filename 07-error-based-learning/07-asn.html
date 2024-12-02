@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Owen Senowitz">
-<meta name="dcterms.date" content="2024-11-23">
+<meta name="dcterms.date" content="2024-12-02">
 
 <title>Written Assignment 07</title>
 <style>
@@ -3140,7 +3140,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 23, 2024</p>
+      <p class="date">December 2, 2024</p>
     </div>
   </div>
   
@@ -3218,10 +3218,14 @@ window.Quarto = {
 </table>
 <div class="quarto-table-caption margin-caption">Data for a predicting heating load in residential buildings.</div></div>
 </div>
-<p>ID 1: 15.51</p>
-<p>ID 2: 7.22</p>
-<p>ID 3: 33.75</p>
-<p>ID 4: 34.36</p>
+<p>ID 1:</p>
+<p><span class="math inline">15.51 = -26.030 + 0.0497 \cdot 784.0 + 4.942 \cdot 3.5 - 0.090 \cdot 220.5 + 20.523 \cdot 0.25</span></p>
+<p>ID 2:</p>
+<p><span class="math inline">7.22 = -26.030 + 0.0497 \cdot 710.5 + 4.942 \cdot 3.0 - 0.090 \cdot 210.5 + 20.523 \cdot 0.10</span></p>
+<p>ID 3:</p>
+<p><span class="math inline">33.75 = -26.030 + 0.0497 \cdot 563.5 + 4.942 \cdot 7.0 - 0.090 \cdot 122.5 + 20.523 \cdot 0.40</span></p>
+<p>ID 4:</p>
+<p><span class="math inline">34.36 = -26.030 + 0.0497 \cdot 637.0 + 4.942 \cdot 6.0 - 0.090 \cdot147.0 + 20.523 \cdot 0.60</span></p>
 </section>
 <section id="another-multivariate-linear-regression-model" class="level1 page-columns page-full" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Another Multivariate Linear Regression Model</h1>
@@ -3321,48 +3325,70 @@ window.Quarto = {
 </div>
 <ol type="a">
 <li><p>Assuming that the current weights in a multivariate linear regression model are w[0]= -59.50, w[1] = -0.15, and w[2] = 0.60, make a prediction for each training instance using this model.</p>
-<p>1: 17.15</p>
-<p>2: 26.00</p>
-<p>3: 25.55</p>
-<p>4: 13.40</p>
-<p>5: 8.99</p>
-<p>6: 20.90</p>
-<p>7: 28.85</p>
-<p>8: 19.40</p>
-<p>9: 17.75</p>
-<p>10: 29.60</p>
-<p>11: 19.85</p>
-<p>12: 16.85</p></li>
+<p>1: <span class="math inline">17.15 =-59.50 + (-0.15 \cdot 41) + (0.60 \cdot 138)</span></p>
+<p>2: <span class="math inline">26.00 = -59.50 + (-0.15 \cdot 42) + (0.60 \cdot 153)</span></p>
+<p>3: <span class="math inline">25.55 = -59.50 + (-0.15 \cdot 37) + (0.60 \cdot 151)</span></p>
+<p>4: <span class="math inline">13.40 = -59.50 + (-0.15 \cdot 46) + (0.60 \cdot 133)</span></p>
+<p>5: <span class="math inline">8.99 = -59.50 + (-0.15 \cdot 48) + (0.60 \cdot 126)</span></p>
+<p>6: <span class="math inline">20.90 = -59.50 + (-0.15 \cdot 44) + (0.60 \cdot 145)</span></p>
+<p>7: <span class="math inline">28.85 = -59.50 + (-0.15 \cdot 43) + (0.60 \cdot 158)</span></p>
+<p>8: <span class="math inline">19.40 = -59.50 + (-0.15 \cdot 46) + (0.60 \cdot 143)</span></p>
+<p>9: <span class="math inline">17.75 = -59.50 + (-0.15 \cdot 37) + (0.60 \cdot 138)</span></p>
+<p>10: <span class="math inline">29.60 = -59.50 + (-0.15 \cdot 38) + (0.60 \cdot 158)</span></p>
+<p>11: <span class="math inline">19.85 = -59.50 + (-0.15 \cdot 43) + (0.60 \cdot 143)</span></p>
+<p>12: <span class="math inline">16.85 = -59.50 + (-0.15 \cdot 43) + (0.60 \cdot 138)</span></p></li>
 <li><p>Calculate the sum of squared errors for the set of predictions generated in part (a).</p>
-<p>1: 434.31</p>
-<p>2: 455.40</p>
-<p>3: 354.57</p>
-<p>4: 218.57</p>
-<p>5: 330.15</p>
-<p>6: 287.30</p>
-<p>7: 251.86</p>
-<p>8: 289.68</p>
-<p>9: 181.17</p>
-<p>10: 637.56</p>
-<p>11: 399.60</p>
-<p>12: 195.44</p></li>
+<p>1: <span class="math inline">434.31 = (37.99 - 17.15)^2</span></p>
+<p>2: <span class="math inline">455.40 = (47.34 - 26.00)^2</span></p>
+<p>3: <span class="math inline">354.57 = (44.38 - 25.55)^2</span></p>
+<p>4: <span class="math inline">218.57 = (28.17 - 13.40)^2</span></p>
+<p>5: <span class="math inline">330.15 = (27.07 - 8.99)^2</span></p>
+<p>6: <span class="math inline">287.30 = (37.85 - 20.90)^2</span></p>
+<p>7: <span class="math inline">251.86 = (44.72 - 28.85)^2</span></p>
+<p>8: <span class="math inline">289.68 = (36.42 - 19.40)^2</span></p>
+<p>9: <span class="math inline">181.17 = (31.21 - 17.75)^2</span></p>
+<p>10: <span class="math inline">637.56 = (54.85 - 29.60)^2</span></p>
+<p>11: <span class="math inline">399.60 = (39.84 - 19.85)^2</span></p>
+<p>12: <span class="math inline">195.44 = (30.83 - 16.85)^2</span></p></li>
 <li><p>Assuming a learning rate of 0.000002, calculate the weights at the next iteration of the gradient descent algorithm.</p>
-<p><span class="math inline">w_0</span>: -59.50</p>
-<p><span class="math inline">w_1</span>: -0.11</p>
-<p><span class="math inline">w_2</span>: 0.73</p></li>
+<p><span class="math inline">\text{Gradient Descent Update Formula:} \quad w_j = w_j - \eta \cdot \frac{\partial J}{\partial w_j}</span></p>
+<p><span class="math inline">\text{For }w_0 = -59.50 - (0.000002 \cdot \frac{\partial J}{\partial w_0})</span></p>
+<p><span class="math inline">\text{For }w_1 = -0.11 - (0.000002 \cdot \frac{\partial J}{\partial w_1})</span></p>
+<p><span class="math inline">\text{For }w_2 = 0.73 - (0.000002 \cdot \frac{\partial J}{\partial w_2})</span></p>
+<p><span class="math inline">w_0 = -59.50 - (0.000002 \cdot -2.33) = -59.50000466</span></p>
+<p><span class="math inline">w_1 = -0.11 - (0.000002 \cdot -99.93) = -0.11019985</span></p>
+<p><span class="math inline">w_2 = 0.73 - (0.000002 \cdot 331.49) = 0.72933702</span></p></li>
 <li><p>Calculate the sum of squared errors for a set of predictions generated using the new set of weights calculated in part (c).</p>
-<p>1: Pred: 35.91 SSE: 4.33</p>
-<p>2: Pred: 46.67 SSE: 0.45</p>
-<p>3: Pred: 45.79 SSE: 1.99</p>
-<p>4: Pred: 31.71 SSE: 12.60</p>
-<p>5: Pred: 26.41 SSE: 0.423</p>
-<p>6: Pred: 40.65 SSE: 7.81</p>
-<p>7: Pred: 50.18 SSE: 29.86</p>
-<p>8: Pred: 38.96 SSE: 6.49</p>
-<p>9: Pred: 36.36 SSE: 26.56</p>
-<p>10: Pred: 50.75 SSE: 16.79</p>
-<p>11: Pred: 39.31 SSE: 0.28</p>
-<p>12: Pred: 35.68 SSE: 23.55</p></li>
+<p><span class="math inline">\text{Prediction Formula:} \quad \hat{y}_i = w_0 + w_1 \cdot \text{Age} + w_2 \cdot \text{Heart Rate}</span></p>
+<p><span class="math inline">\text{For each ID:}</span></p>
+<p><span class="math inline">\hat{y}_1 = -59.50000466 + (-0.11019985 \cdot 41) + (0.72933702 \cdot 138) = 35.91</span></p>
+<p><span class="math inline">\hat{y}_2 = -59.50000466 + (-0.11019985 \cdot 42) + (0.72933702 \cdot 153) = 46.67</span></p>
+<p><span class="math inline">\hat{y}_3 = -59.50000466 + (-0.11019985 \cdot 37) + (0.72933702 \cdot 151) = 45.79</span></p>
+<p><span class="math inline">\hat{y}_4 = -59.50000466 + (-0.11019985 \cdot 46) + (0.72933702 \cdot 133) = 31.71</span></p>
+<p><span class="math inline">\hat{y}_5 = -59.50000466 + (-0.11019985 \cdot 48) + (0.72933702 \cdot 126) = 26.41</span></p>
+<p><span class="math inline">\hat{y}_6 = -59.50000466 + (-0.11019985 \cdot 44) + (0.72933702 \cdot 145) = 40.65</span></p>
+<p><span class="math inline">\hat{y}_7 = -59.50000466 + (-0.11019985 \cdot 43) + (0.72933702 \cdot 158) = 50.18</span></p>
+<p><span class="math inline">\hat{y}_8 = -59.50000466 + (-0.11019985 \cdot 46) + (0.72933702 \cdot 143) = 38.96</span></p>
+<p><span class="math inline">\hat{y}_9 = -59.50000466 + (-0.11019985 \cdot 37) + (0.72933702 \cdot 138) = 36.36</span></p>
+<p><span class="math inline">\hat{y}_{10} = -59.50000466 + (-0.11019985 \cdot 38) + (0.72933702 \cdot 158) = 50.75</span></p>
+<p><span class="math inline">\hat{y}_{11} = -59.50000466 + (-0.11019985 \cdot 43) + (0.72933702 \cdot 143) = 39.31</span></p>
+<p><span class="math inline">\hat{y}_{12} = -59.50000466 + (-0.11019985 \cdot 43) + (0.72933702 \cdot 138) = 35.68</span></p>
+<p><span class="math inline">\text{Squared Error Formula:} \quad \text{SSE}_i = (y_i - \hat{y}_i)^2</span></p>
+<p><span class="math inline">\text{For each ID:}</span></p>
+<p><span class="math inline">\text{SSE}_1 = (37.99 - 35.91)^2 = 4.33</span></p>
+<p><span class="math inline">\text{SSE}_2 = (47.34 - 46.67)^2 = 0.45</span></p>
+<p><span class="math inline">\text{SSE}_3 = (44.38 - 45.79)^2 = 1.99</span></p>
+<p><span class="math inline">\text{SSE}_4 = (28.17 - 31.71)^2 = 12.60</span></p>
+<p><span class="math inline">\text{SSE}_5 = (27.07 - 26.41)^2 = 0.423</span></p>
+<p><span class="math inline">\text{SSE}_6 = (37.85 - 40.65)^2 = 7.81</span></p>
+<p><span class="math inline">\text{SSE}_7 = (44.72 - 50.18)^2 = 29.86</span></p>
+<p><span class="math inline">\text{SSE}_8 = (36.42 - 38.96)^2 = 6.49</span></p>
+<p><span class="math inline">\text{SSE}_9 = (31.21 - 36.36)^2 = 26.56</span></p>
+<p><span class="math inline">\text{SSE}_{10} = (54.85 - 50.75)^2 = 16.79</span></p>
+<p><span class="math inline">\text{SSE}_{11} = (39.84 - 39.31)^2 = 0.28</span></p>
+<p><span class="math inline">\text{SSE}_{12} = (30.83 - 35.68)^2 = 23.55</span></p>
+<p><span class="math inline">\text{Total SSE:} \quad \text{SSE} = \sum_{i=1}^{n} \text{SSE}_i</span></p>
+<p><span class="math inline">\text{Final SSE:} \quad \text{SSE} = 164.16</span></p></li>
 </ol>
 </section>
 <section id="logistic-regression-model" class="level1 page-columns page-full" data-number="3">
@@ -3439,107 +3465,13 @@ window.Quarto = {
 </table>
 <div class="quarto-table-caption margin-caption">Prediction queries.</div></div>
 </div>
-<div class="cell page-columns page-full">
-<div class="cell-output-display page-columns page-full">
-<table class="caption-top table table-sm table-striped small">
-
-<colgroup>
-<col style="width: 3%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 10%">
-<col style="width: 8%">
-<col style="width: 10%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">ID</th>
-<th style="text-align: right;">DOSE1</th>
-<th style="text-align: right;">DOSE2</th>
-<th style="text-align: right;">Phi_0</th>
-<th style="text-align: right;">Phi_1</th>
-<th style="text-align: right;">Phi_2</th>
-<th style="text-align: right;">Phi_3</th>
-<th style="text-align: right;">Phi_4</th>
-<th style="text-align: right;">Phi_5</th>
-<th style="text-align: right;">Phi_6</th>
-<th style="text-align: right;">Phi_7</th>
-<th style="text-align: right;">Z</th>
-<th style="text-align: right;">P_Dangerous</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">0.75</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.50</td>
-<td style="text-align: right;">0.75</td>
-<td style="text-align: right;">0.2500</td>
-<td style="text-align: right;">0.5625</td>
-<td style="text-align: right;">0.1250</td>
-<td style="text-align: right;">0.421875</td>
-<td style="text-align: right;">0.3750</td>
-<td style="text-align: right;">1.546141</td>
-<td style="text-align: right;">0.824356</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0.10</td>
-<td style="text-align: right;">0.75</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.10</td>
-<td style="text-align: right;">0.75</td>
-<td style="text-align: right;">0.0100</td>
-<td style="text-align: right;">0.5625</td>
-<td style="text-align: right;">0.0010</td>
-<td style="text-align: right;">0.421875</td>
-<td style="text-align: right;">0.0750</td>
-<td style="text-align: right;">-0.460975</td>
-<td style="text-align: right;">0.386754</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">-0.47</td>
-<td style="text-align: right;">-0.39</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-0.47</td>
-<td style="text-align: right;">-0.39</td>
-<td style="text-align: right;">0.2209</td>
-<td style="text-align: right;">0.1521</td>
-<td style="text-align: right;">-0.1038</td>
-<td style="text-align: right;">-0.059319</td>
-<td style="text-align: right;">0.1833</td>
-<td style="text-align: right;">0.533672</td>
-<td style="text-align: right;">0.630339</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">-0.47</td>
-<td style="text-align: right;">0.18</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-0.47</td>
-<td style="text-align: right;">0.18</td>
-<td style="text-align: right;">0.2209</td>
-<td style="text-align: right;">0.0324</td>
-<td style="text-align: right;">-0.1038</td>
-<td style="text-align: right;">0.005832</td>
-<td style="text-align: right;">-0.0846</td>
-<td style="text-align: right;">-1.671841</td>
-<td style="text-align: right;">0.158179</td>
-</tr>
-</tbody>
-</table>
-<div class="quarto-table-caption margin-caption">Logistic Regression Predictions Table</div></div>
-</div>
+<p><span class="math inline">\text{Logistic Regression Formula:} \quad P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{-Z}}</span></p>
+<p><span class="math inline">\text{Z Formula:} \quad Z = -0.848 \cdot \phi_0 + 1.545 \cdot \phi_1 - 1.942 \cdot \phi_2 + 1.973 \cdot \phi_3 + 2.495 \cdot \phi_4 + 0.104 \cdot \phi_5 + 0.095 \cdot \phi_6 + 3.009 \cdot \phi_7</span></p>
+<p><span class="math inline">\text{Basis Functions:}</span> <span class="math inline">\phi_0 = 1</span> <span class="math inline">\phi_1 = \text{DOSE1}</span> <span class="math inline">\phi_2 = \text{DOSE2}</span> <span class="math inline">\phi_3 = \text{DOSE1}^2</span> <span class="math inline">\phi_4 = \text{DOSE2}^2</span> <span class="math inline">\phi_5 = \text{DOSE1}^3</span> <span class="math inline">\phi_6 = \text{DOSE2}^3</span> <span class="math inline">\phi_7 = \text{DOSE1} \cdot \text{DOSE2}</span></p>
+<p><span class="math inline">\text{For ID 1:}</span> <span class="math inline">Z = -0.848 \cdot 1 + 1.545 \cdot 0.50 - 1.942 \cdot 0.75 + 1.973 \cdot 0.2500 + 2.495 \cdot 0.5625 + 0.104 \cdot 0.125000 + 0.095 \cdot 0.421875 + 3.009 \cdot 0.3750 = 1.546141</span> <span class="math inline">P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{-1.546141}} = 0.824356</span></p>
+<p><span class="math inline">\text{For ID 2:}</span> <span class="math inline">Z = -0.848 \cdot 1 + 1.545 \cdot 0.10 - 1.942 \cdot 0.75 + 1.973 \cdot 0.0100 + 2.495 \cdot 0.5625 + 0.104 \cdot 0.001000 + 0.095 \cdot 0.421875 + 3.009 \cdot 0.0750 = -0.460975</span> <span class="math inline">P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{0.460975}} = 0.386754</span></p>
+<p><span class="math inline">\text{For ID 3:}</span> <span class="math inline">Z = -0.848 \cdot 1 + 1.545 \cdot -0.47 - 1.942 \cdot -0.39 + 1.973 \cdot 0.2209 + 2.495 \cdot 0.1521 + 0.104 \cdot -0.103823 + 0.095 \cdot -0.059319 + 3.009 \cdot 0.1833 = 0.533672</span> <span class="math inline">P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{-0.533672}} = 0.630339</span></p>
+<p><span class="math inline">\text{For ID 4:}</span> <span class="math inline">Z = -0.848 \cdot 1 + 1.545 \cdot -0.47 - 1.942 \cdot 0.18 + 1.973 \cdot 0.2209 + 2.495 \cdot 0.0324 + 0.104 \cdot -0.103823 + 0.095 \cdot 0.005832 + 3.009 \cdot -0.0846 = -1.671841</span> <span class="math inline">P(\text{TYPE} = \text{dangerous}) = \frac{1}{1 + e^{1.671841}} = 0.158179</span></p>
 </section>
 
 </main>
